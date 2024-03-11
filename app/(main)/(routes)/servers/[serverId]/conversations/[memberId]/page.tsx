@@ -27,7 +27,7 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
 
 	const currentMember = await db.member.findFirst({
 		where: {
-			serverId: params.serverId,
+			serverId: params?.serverId,
 			profileId: profile?.id,
 		},
 		include: {
@@ -39,12 +39,12 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
 
 	const conversation = await getOrCreateConversation(
 		currentMember.id,
-		params.memberId
+		params?.memberId
 	);
 
 	if (!conversation) {
 		console.log("no conversaton found");
-		return redirect(`/servers/${params.serverId}`);
+		return redirect(`/servers/${params?.serverId}`);
 	}
 
 	const { memberOne, memberTwo } = conversation;
@@ -56,7 +56,7 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
 		<div className="flex flex-col bg-white dark:bg-[#313338] h-full">
 			<ChatHeader
 				type="conversation"
-				serverId={params.serverId}
+				serverId={params?.serverId}
 				imageUrl={otherMember.profile.imageUrl}
 				name={otherMember.profile.name}
 			/>

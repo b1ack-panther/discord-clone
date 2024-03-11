@@ -7,7 +7,7 @@ export async function PATCH(
 	{ params }: { params: { serverId: string } }
 ) {
 	try {
-		if (!params.serverId)
+		if (!params?.serverId)
 			return new NextResponse("Server ID missing", { status: 400 });
 		const profile = await currentProfile();
 		if (!profile) return new NextResponse("Unauthorized", { status: 401 });
@@ -16,7 +16,7 @@ export async function PATCH(
 
 		const server = await db.server.update({
 			where: {
-				id: params.serverId,
+				id: params?.serverId,
 				profileId: profile.id,
 			},
 			data: { imageUrl, name: serverName },

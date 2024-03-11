@@ -29,7 +29,7 @@ interface ServerSearchProps {
 const ServerSearch = ({ data }: ServerSearchProps) => {
 	const [open, setOpen] = useState(false);
 	const router = useRouter();
-	const params: { serverId: string } = useParams();
+	const params  = useParams();
 
 	useEffect(() => {
 		const keyDown = (e: KeyboardEvent) => {
@@ -51,10 +51,10 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
 	}) => {
 		setOpen(false);
 		if (type === "member") {
-			router.push(`/servers/${params.serverId}/conversations/${id}`);
+			router.push(`/servers/${params?.serverId}/conversations/${id}`);
 		}
 		if (type === "channel") {
-			router.push(`/servers/${params.serverId}/channels/${id}`);
+			router.push(`/servers/${params?.serverId}/channels/${id}`);
 		}
 	};
 

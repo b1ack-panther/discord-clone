@@ -24,13 +24,13 @@ const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
 				<div
 					className={cn(
 						"absolute bg-primary w-[4px] rounded-full left-0 transition-all duration-300",
-						params.serverId === id ? "h-[36px]" : "h-0 group-hover:h-[20px]"
+						params?.serverId === id ? "h-[36px]" : "h-0 group-hover:h-[20px]"
 					)}
 				/>
 				<div
 					className={cn(
 						"relative group flex mx-3 h-[48px] w-[48px] group-hover:rounded-[16px] rounded-[24px] transition-all overflow-hidden",
-						params.serverId === id &&
+						params?.serverId === id &&
 							"rounded-[16px] bg-primary/10 text-primary"
 					)}
 				>
