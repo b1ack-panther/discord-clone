@@ -19,8 +19,8 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
 					src={value}
 					className="rounded-full w-full h-full object-cover"
 					alt="upload"
-					height={80}
-					width={80}
+					sizes="100%"
+					fill
 					objectFit="cover"
 				/>
 				<button
